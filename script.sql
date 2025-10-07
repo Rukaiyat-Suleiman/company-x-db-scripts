@@ -48,3 +48,38 @@ CREATE TABLE order_items (
     FOREIGN KEY (order_id) REFERENCES orders(id),
     FOREIGN KEY (product_id) REFERENCES products(id)
 );
+
+INSERT INTO user_roles (name) VALUES 
+('admin'),
+('customer'),
+('guest');
+
+INSERT INTO users (role_id, username, password) VALUES 
+(2, 'alicej', 'hashed_password_1'),
+(1, 'bobsmith', 'hashed_password_2'),
+(2, 'charlieb', 'hashed_password_3');
+
+INSERT INTO categories (name) VALUES 
+('Clothing'),
+('Electronics'),
+('Books');
+
+INSERT INTO sizes (name) VALUES 
+('small'),
+('medium'),
+('large');
+
+INSERT INTO products (category_id, size_id, name, price) VALUES 
+(1, 2, 'Cotton T-Shirt', 25.00),
+(2, 2, 'Wireless Headphones', 150.00),
+(3, 1, 'Programming Book', 45.00);
+
+INSERT INTO orders (user_id, total) VALUES 
+(1, 50.00),
+(2, 150.00),
+(1, 135.00);
+
+INSERT INTO order_items (order_id, product_id, quantity, price) VALUES 
+(1, 1, 2, 25.00),
+(2, 2, 1, 150.00),
+(3, 3, 3, 45.00);
